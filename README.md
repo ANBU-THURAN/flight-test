@@ -45,7 +45,7 @@ TO TEST IN LOCAL ENVIRONMENT : ( FOLLOW THE BELOW STEPS) <br>
    If you are using Postman API, open Postman API and type these APIs and change the method to the corresponding present in the list. <br>
    <b> Authentication : </b> <br>
    ### <b> i) *POST* http://localhost:5000/api/v1/auth/login </b> <br>
-   Sample json : 
+   Sample json : <br>
    {
        "userName" : "anbu",
        "password" : "1234"
@@ -55,7 +55,7 @@ TO TEST IN LOCAL ENVIRONMENT : ( FOLLOW THE BELOW STEPS) <br>
    <br> After you press send, you should see a token as output like this.
    <br> <b> Note : </b> This user would've been created when you ran the sql code. So, no need to register for this user. But if you want to login with a different user, you should register it first <br><br>
    ### <b> ii) *POST* http://localhost:5000/api/v1/auth/register </b> <br> 
-   Sample json :
+   Sample json : <br>
     {
        "userID" : 102,
        "userType" : "user",
@@ -78,8 +78,54 @@ TO TEST IN LOCAL ENVIRONMENT : ( FOLLOW THE BELOW STEPS) <br>
    If you have not already added any flights, the output may have no flights. In that case, add a flight first, then call this API <br>
    ### <b> ii) *POST* http://localhost:5000/api/v1/flights </b> <br>
    To add a new flight, use this API, <br>
-   Sample json :
+   Sample json : <br>
+   {
+       "flightID" : 1001,
+       "startplace" : "Chennai",
+       "endplace" : "Chennai",
+       "curplace" : "Chennai",
+       "curdest" : "Hydrebad",
+       "takeoff_time" : "2023-10-10 14:20:00",
+       "landing_time" : "2023-10-10 17:30:00"
+   }
+   <br>
+   The places and their Ids were added during the execution of the sql code. <br>
+   The places you are using here should be a valid place that is already present in the database <br>
+    
+   ![image](https://user-images.githubusercontent.com/106261859/233555744-dc2ce6f1-2e2d-4fa3-8b89-799ec09c1f7e.png) <br>
+   You should see the message "Flight added successfully" <br>
+   ### <b> iii)  *DELETE* http://localhost:5000/api/v1/flights/:id </b> <br>
+   This API is used to remove a flight from the database given it's flightID , the id should be given in the params. <br>
+   Sample : <br>
+   ![image](https://user-images.githubusercontent.com/106261859/233556280-171b9e98-ae56-4e2a-bc3d-fb029bb1c0c5.png) <br>
+   You should see the message :Flight deleted successfully" <br>
+   ### <b> iv) *GET* http://localhost:5000/api/v1/flights/user/:id </b> <br>
+   This API is used to get all the flights that a user has booked seats in. It will list all the flights based on the user ID provided in the params. <br>
+   Sample : <br>
+   ![image](https://user-images.githubusercontent.com/106261859/233558023-26d40092-bb72-4e78-b4db-8521ea2ff77b.png) <br>
+   If there are no bookings on the userID, you will receive a empty data as response. <br>
+   ### <b> v) *POST* http://localhost:5000/api/v1/flights/bookFLight </b> <br>
+   This API is used to book a new flight for a user. <br> 
+   Sample JSON : <br> 
+   {
+       "bookingID" : 1,
+       "flightID" : 100,
+       "eco" : 2,
+       "buss" : 3,
+       "userID" : 101,
+       "userType" : "admin",
+       "ticketPrice" : 2000
+  } <br>
+  During post, ensure that you have a correct flightID and userID (They should already exist). <br>
+  You will receive a output like this, <br>
+  ![image](https://user-images.githubusercontent.com/106261859/233558890-8eb71603-efc3-4fc4-9332-6e3d6217c92a.png) <br>
+
+
    
+   
+
+   
+    
    
    
    
