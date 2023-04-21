@@ -42,10 +42,42 @@ TO TEST IN LOCAL ENVIRONMENT : ( FOLLOW THE BELOW STEPS) <br>
           
   # DETAILS ABOUT EACH API (HOW TO TEST) <br>
   --------------------------------------
-   If you are using Postman API, open Postman API and type these APIs and change the method to the corresponding present in the list.
-   i) *POST* http://localhost:5000/api/v1/auth/login <br>
+   If you are using Postman API, open Postman API and type these APIs and change the method to the corresponding present in the list. <br>
+   <b> Authentication : </b> <br>
+   <b> i) *POST* http://localhost:5000/api/v1/auth/login </b> <br>
    Sample json : 
+   {
+       "userName" : "anbu",
+       "password" : "1234"
+   }
+   <br>
+   ![image](https://user-images.githubusercontent.com/106261859/233549860-3425bf93-ec66-447a-8a86-99a6bede37ec.png)
+   <br> After you press send, you should see a token as output like this.
+   <br> <b> Note : </b> This user would've been created when you ran the sql code. So, no need to register for this user. But if you want to login with a different user, you should register it first <br><br>
+   <b> ii) *POST* http://localhost:5000/api/v1/auth/register </b> <br> 
+   Sample json :
+    {
+       "userID" : 102,
+       "userType" : "user",
+       "userName" : "sampleUser",
+       "password" : "4567",
+       "gender" : "male",
+       "mobile_no" : "7777777777",
+       "email" : "testing@gmail.com",
+       "age" : 40
+   } 
+   <br> 
+   ![image](https://user-images.githubusercontent.com/106261859/233551275-f125fc1d-5c4a-4c78-873a-f642053eb38b.png) <br>
+   You should see a message that says "User registered successfully" <br>
+   During registration, the password will be hashed and stored in the database for safety purposes <br>
+   <b> Functionalities : </b> <br>
+   <b> i) *GET* http://localhost:5000/api/v1/flights </b> <br>
+   This API will list all the flights that have already been added with their details (like destination, takeoff time, etc) <br>
+   ![image](https://user-images.githubusercontent.com/106261859/233552970-0c97f89a-4888-405e-bbc1-f0674a87e2a0.png) <br>
+   You should see a output like this , that has all the flight details. <br>
+   If you have not already added any flights, the output may have no flights. In that case, add a flight first, then call this API <br>
+   <b> ii) *POST* http://localhost:5000/api/v1/flights </b> <br>
    
    
-
+   
    
