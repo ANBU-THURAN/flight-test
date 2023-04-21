@@ -6,7 +6,7 @@ const flightsController = {
             SELECT f.flightID, p1.placeName as start_place, p2.placeName as end_place, f.takeoff_time, f.landing_time, f.eco_balance_seats, f.buss_balance_seats
             FROM flights f
             INNER JOIN Places p1 ON f.start_placeID = p1.placeID
-            INNER JOIN Places p2 ON f.end_placeID = p2.placeID;
+            INNER JOIN Places p2 ON f.cur_destID = p2.placeID;
             `)
             res.json({
                 data: rows
