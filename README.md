@@ -1,4 +1,27 @@
 #### This repository contains the backend APIs for a flight ticket booking system <br>
+### Details : <br>
+#### This repo contains all the backend APIs required for a basic functioning flight ticket booking system. <br> 
+     Functionalities provided by APIs : 
+           1) Register a new user (The user can be either user or admin) 
+           2) Login ( It will check the existing database for the user and verify the credentials and it will provide a token if the details are valid)
+           3) get all flights (It show the data of all the flights that are currently in the database )
+           4) Add a flight ( add a new flight with the required details)
+           5) delele flight (remove a flight if there is no booking made on it currently )
+           6) flights list based on user booking (provides a list of all the flights in which the user has made booking ) 
+           7) book flight ( book a flight after checking available seats, both economy class and business class )
+ <br>
+<b> HOSTED APIs : </b> <br>
+---------------------- <br>
+<b> 1. for authentication : </b> <br>
+          i) *POST* https://flight-ticket-booking-sigma.vercel.app/api/v1/auth/login <br>
+          ii) *POST* https://flight-ticket-booking-sigma.vercel.app/api/v1/auth/register <br>
+<b> 2. for functionality : </b> <br>
+          i) *GET* https://flight-ticket-booking-sigma.vercel.app/api/v1/flights <br>
+          ii) *POST* https://flight-ticket-booking-sigma.vercel.app/api/v1/flights <br>
+          iii) *DELETE* https://flight-ticket-booking-sigma.vercel.app/api/v1/flights/:id <br>
+          iv) *GET* https://flight-ticket-booking-sigma.vercel.app/api/v1/flights/user/:id <br>
+          v) *POST* https://flight-ticket-booking-sigma.vercel.app/api/v1/flights/bookFLight <br>
+
 TO TEST IN LOCAL ENVIRONMENT : ( FOLLOW THE BELOW STEPS) <br>
 -------------------------------
    1. Download the files in this repo (or) clone this repository.
@@ -119,9 +142,7 @@ TO TEST IN LOCAL ENVIRONMENT : ( FOLLOW THE BELOW STEPS) <br>
   During post, ensure that you have a correct flightID and userID (They should already exist). <br>
   You will receive a output like this, <br>
   ![image](https://user-images.githubusercontent.com/106261859/233558890-8eb71603-efc3-4fc4-9332-6e3d6217c92a.png) <br>
-
-
-   
+  
    
 
    
