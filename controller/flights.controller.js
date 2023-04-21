@@ -127,6 +127,12 @@ const flightsController = {
         const userType = req.body.userType;
         const ticketPrice = req.body.ticketPrice;
         const [flightDetails] = await pool.query('SELECT * from flights where flightID = ?', [flightID]);
+        if(flightDetails.length === 0){
+            return res.json({
+                status : "404",
+                reason : "flight not found"
+            })
+        }
         const currFlight = flightDetails[0];
         const [users] = await pool.query('SELECT * FROM users WHERE userID = ?', [userID]); 
         if(users.length === 0){
